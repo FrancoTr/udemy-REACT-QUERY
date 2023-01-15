@@ -13,7 +13,7 @@ export function Posts() {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  const { data, isError, error, isLoading } = useQuery("posts", fetchPosts); //query key: 'posts' - fetchPosts needs to be asynchronous
+  const { data, isError, error, isLoading } = useQuery("posts", fetchPosts, { staleTime: 2000 }); //query key: 'posts' - fetchPosts needs to be asynchronous
   if (isLoading) return <h3>Loading...</h3>;
   if (isError)
     return (
